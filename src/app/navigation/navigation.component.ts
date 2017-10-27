@@ -9,6 +9,7 @@ export class NavigationComponent implements OnInit {
 
 	@Input() isSideNavClosed: boolean;
 	@Output() isSideNavClosedChange = new EventEmitter();
+  title: string = 'Historical Reports';
 
   constructor() { }
 
