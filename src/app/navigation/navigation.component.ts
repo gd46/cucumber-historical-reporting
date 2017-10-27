@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
+	@Input() isSideNavClosed: boolean;
+	@Output() isSideNavClosedChange = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
+ 	}
+
+  toggleSideNav(newValue): void {
+		this.isSideNavClosed = !this.isSideNavClosed;
+		this.isSideNavClosedChange.emit(this.isSideNavClosed);
   }
 
 }

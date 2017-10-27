@@ -25,10 +25,7 @@
         "./scss/sb-admin.scss"
       ],
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-        "../node_modules/jquery.easing/jquery.easing.min.js",
-        "./scripts/sb-admin.min.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

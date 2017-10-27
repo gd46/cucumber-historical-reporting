@@ -1,21 +1,24 @@
-<!-- Navigation -->
-<app-navigation></app-navigation>
+<body class="fixed-nav sticky-footer bg-dark" [ngClass]="{'sidenav-toggled': isSideNavClosed}">
+    <!-- Navigation -->
+    <app-navigation [(isSideNavClosed)]="isSideNavClosed"></app-navigation>
 
-<div class="content-wrapper">
-  <div class="container-fluid">
-    
-    <!-- Breadcrumbs-->
-    <app-breadcrumbs></app-breadcrumbs>
-    
-    <div class="row">
-      <div class="col-12">
-   			<router-outlet></router-outlet>
-      </div>
-    </div>
-  </div> <!-- /.container-fluid-->
-  
-  <!-- Footer -->
-  <app-footer></app-footer>
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        
+        <!-- Breadcrumbs-->
+        <app-breadcrumbs></app-breadcrumbs>
+        
+        <div class="row">
+          <div class="col-12">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div> <!-- /.container-fluid-->
+      
+      <!-- Footer -->
+      <app-footer></app-footer>
 
-</div><!-- /.content-wrapper-->
+    </div><!-- /.content-wrapper-->
+    
+</body>
 
