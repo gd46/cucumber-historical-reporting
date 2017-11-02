@@ -21,11 +21,15 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req,res) => {
-    res.send("Invalid page");
-})
+  res.send("Invalid page");
+});
 
 app.use('/api/jobs', jobs);
 app.use('/api/reports', reports);
+
+app.get('*', (req,res) => {
+	res.sendFile(__dirname + "/public/index.html");
+});
 
 app.listen(port, () => {
     console.log(`Starting the server at port ${port}`);
