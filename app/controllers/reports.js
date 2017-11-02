@@ -7,10 +7,10 @@ router.get('/details/:id', (req,res,next) => {
     let id = req.params.id;
     reports.getReportsById(id, (err, details) => {
       if(err) {
-        res.json({message: `Failed to create a new job. Error: ${err}`});
+        return res.json({message: `Failed to create a new job. Error: ${err}`});
       }
       else {
-        res.json({
+        return res.json({
           data: details
         });
       }

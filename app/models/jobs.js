@@ -8,6 +8,10 @@ const JobsSchema = mongoose.Schema({
     reportsId: {
         type: String,
         required: true
+    },
+    creationDate: {
+        type: String,
+        required: true
     }
 });
 
