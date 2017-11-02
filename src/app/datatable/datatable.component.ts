@@ -9,11 +9,12 @@ declare const $: any;
 })
 export class DatatableComponent implements OnInit {
 
-	@Input() title;
+	@Input() tableData;
 
   constructor() { }
 
   ngOnInit() {
+  	console.log('tableData', this.tableData);
   	$('#dataTable').DataTable();
   }
 

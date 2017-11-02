@@ -2,7 +2,7 @@
   dashboard works!
 </p>
 <div class="container">
-	<div class="row">
-		<app-datatable [title]="'Job History'"></app-datatable>
+	<div class="row" *ngIf="jobsTableInfo">
+		<app-datatable [tableData]="jobsTableInfo"></app-datatable>
 	</div>
 </div>
