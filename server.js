@@ -5,39 +5,28 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/database');
 const reports = require('./app/controllers/reports');
+const jobs = require('./app/controllers/jobs');
 
-// Connect to database
+const app = express();
+const port = 3000;
+
 mongoose.connect(config.database, {
 	useMongoClient: true
 });
 
-//Initialize our app variable
-const app = express();
-
-//Declaring Port
-const port = 3000;
-
-//Middleware for CORS
 app.use(cors());
-
-//Middleware for bodyparsing using both json and urlencoding
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
-/*express.static is a built in middleware function to serve static files.
- We are telling express server public folder is the place to look for the static files
-*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req,res) => {
     res.send("Invalid page");
 })
 
-//Routing all HTTP requests to /reports to reports controller
-app.use('/reports', reports);
+app.use('/api/jobs', jobs);
+app.use('/api/reports', reports);
 
-
-//Listen to port 3000
 app.listen(port, () => {
     console.log(`Starting the server at port ${port}`);
 });
