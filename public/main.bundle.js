@@ -213,7 +213,7 @@ BreadcrumbsComponent = __decorate([
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dashboard works!\n</p>\n<div class=\"container\">\n\t<div class=\"row\" *ngIf=\"jobsTableInfo\">\n\t\t<app-datatable [tableData]=\"jobsTableInfo\"></app-datatable>\n\t</div>\n</div>\n"
+module.exports = "<p>\n  dashboard works!\n</p>\n<div class=\"container-fluid\">\n\t<div class=\"row\" *ngIf=\"jobsTableInfo\">\n\t\t<app-datatable class=\"container-fluid\" [tableData]=\"jobsTableInfo\"></app-datatable>\n\t</div>\n</div>\n"
 
 /***/ }),
 
