@@ -1,28 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { JobsService } from '../jobs.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
+  providers: [JobsService]
 })
 export class DashboardComponent implements OnInit {
 
 	jobsTableInfo: any;
 
-  constructor(private http: Http) { }
+  constructor(private jobsService: JobsService) { }
 
   ngOnInit() {
-  	this.getJobs()
-  		.then((data) => this.setJobsTableData(data));
-  }
-
-  getJobs() {
-  	return this.http.get('/api/jobs')
-  		.toPromise()
-  		.then((response) => {
-  			return response.json().data;
+  	this.jobsService.getJobs()
+  		.then((data) => this.setJobsTableData(data))
+  		.catch((err) => {
+  			//TODO add logger
+  			console.log('error getting jobs info', err);
   		});
   }
 
@@ -35,5 +31,4 @@ export class DashboardComponent implements OnInit {
   		data: data
   	}
   };
-
 }
