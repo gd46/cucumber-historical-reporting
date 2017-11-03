@@ -1,7 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-declare const $: any;
-
 @Component({
   selector: 'app-datatable',
   templateUrl: './datatable.component.html',
@@ -15,7 +13,6 @@ export class DatatableComponent implements OnInit {
 
   ngOnInit() {
   	console.log('tableData', this.tableData);
-  	$('#dataTable').DataTable();
   }
 
 }

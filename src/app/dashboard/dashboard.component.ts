@@ -28,7 +28,6 @@ export class DashboardComponent implements OnInit {
 
   setJobsTableData(data) {
   	this.jobsTableInfo = {
-  		title: 'Job History',
   		headers: [
   			'Build Name',
   			'Created On'

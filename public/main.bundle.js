@@ -274,7 +274,6 @@ var DashboardComponent = (function () {
     };
     DashboardComponent.prototype.setJobsTableData = function (data) {
         this.jobsTableInfo = {
-            title: 'Job History',
             headers: [
                 'Build Name',
                 'Created On'
@@ -302,7 +301,7 @@ var _a;
 /***/ "../../../../../src/app/datatable/datatable.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card mb-3\">\n  <div class=\"card-header\">\n    <i class=\"fa fa-table\"></i> {{tableData.title}}</div>\n  <div class=\"card-body\">\n    <div class=\"table-responsive\">\n      <table class=\"table table-bordered\" id=\"dataTable\" width=\"100%\" cellspacing=\"0\">\n        <thead>\n          <tr>\n            <!-- <th *ngFor=\"let header of tableData.headers\">{{header}}</th> -->\n            <th>{{tableData.headers[0]}}</th>\n            <th>{{tableData.headers[1]}}</th>\n          </tr>\n        </thead>\n        <tfoot>\n          <tr>\n            <!-- <th *ngFor=\"let header of tableData.headers\">{{header}}</th> -->\n            <th>{{tableData.headers[0]}}</th>\n            <th>{{tableData.headers[1]}}</th>\n          </tr>\n        </tfoot>\n        <tbody>\n          <!-- <tr *ngFor=\"let job of tableData.data\">\n            <td>{{job.buildName}}</td>\n            <td>{{job.creationDate}}</td>\n          </tr> -->\n          <tr>\n            <td>Test</td>\n            <td>test2</td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n  <div class=\"card-footer small text-muted\">Updated yesterday at 11:59 PM</div>\n</div>"
+module.exports = "<table class=\"table table-striped table-hover table-dark\">\n  <thead>\n    <tr>\n      <th *ngFor=\"let header of tableData.headers\">\n        {{header}}\n      </th>      \n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let job of tableData.data\">\n      <td>{{job.buildName}}</td>\n      <td>{{job.creationDate}}</td>\n    </tr>\n  </tbody>\n</table>"
 
 /***/ }),
 
@@ -345,7 +344,6 @@ var DatatableComponent = (function () {
     }
     DatatableComponent.prototype.ngOnInit = function () {
         console.log('tableData', this.tableData);
-        $('#dataTable').DataTable();
     };
     return DatatableComponent;
 }());

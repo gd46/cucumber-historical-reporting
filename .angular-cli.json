@@ -27,9 +27,7 @@
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.slim.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-        "../node_modules/datatables.net/js/jquery.datatables.js",
-        "../node_modules/datatables.net-bs4/js/datatables.bootstrap4.js"
+        "../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
