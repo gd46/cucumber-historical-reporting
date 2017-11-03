@@ -1,3 +1,8 @@
 <p>
   dashboard works!
 </p>
+<div class="container-fluid">
+	<div class="row" *ngIf="jobsTableInfo">
+		<app-datatable class="container-fluid" [tableData]="jobsTableInfo"></app-datatable>
+	</div>
+</div>
