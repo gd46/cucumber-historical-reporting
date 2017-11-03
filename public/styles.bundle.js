@@ -96,21 +96,6 @@ exports.push([module.i, "/*!\n * Bootstrap v4.0.0-beta.2 (https://getbootstrap.c
 
 /***/ }),
 
-/***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../datatables.net-bs4/css/datatables.bootstrap4.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "table.dataTable {\n  clear: both;\n  margin-top: 6px !important;\n  margin-bottom: 6px !important;\n  max-width: none !important;\n  border-collapse: separate !important;\n}\ntable.dataTable td,\ntable.dataTable th {\n  box-sizing: content-box;\n}\ntable.dataTable td.dataTables_empty,\ntable.dataTable th.dataTables_empty {\n  text-align: center;\n}\ntable.dataTable.nowrap th,\ntable.dataTable.nowrap td {\n  white-space: nowrap;\n}\n\ndiv.dataTables_wrapper div.dataTables_length label {\n  font-weight: normal;\n  text-align: left;\n  white-space: nowrap;\n}\ndiv.dataTables_wrapper div.dataTables_length select {\n  width: 75px;\n  display: inline-block;\n}\ndiv.dataTables_wrapper div.dataTables_filter {\n  text-align: right;\n}\ndiv.dataTables_wrapper div.dataTables_filter label {\n  font-weight: normal;\n  white-space: nowrap;\n  text-align: left;\n}\ndiv.dataTables_wrapper div.dataTables_filter input {\n  margin-left: 0.5em;\n  display: inline-block;\n  width: auto;\n}\ndiv.dataTables_wrapper div.dataTables_info {\n  padding-top: 0.85em;\n  white-space: nowrap;\n}\ndiv.dataTables_wrapper div.dataTables_paginate {\n  margin: 0;\n  white-space: nowrap;\n  text-align: right;\n}\ndiv.dataTables_wrapper div.dataTables_paginate ul.pagination {\n  margin: 2px 0;\n  white-space: nowrap;\n  -webkit-box-pack: end;\n      -ms-flex-pack: end;\n          justify-content: flex-end;\n}\ndiv.dataTables_wrapper div.dataTables_processing {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  width: 200px;\n  margin-left: -100px;\n  margin-top: -26px;\n  text-align: center;\n  padding: 1em 0;\n}\n\ntable.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting,\ntable.dataTable thead > tr > td.sorting_asc,\ntable.dataTable thead > tr > td.sorting_desc,\ntable.dataTable thead > tr > td.sorting {\n  padding-right: 30px;\n}\ntable.dataTable thead > tr > th:active,\ntable.dataTable thead > tr > td:active {\n  outline: none;\n}\ntable.dataTable thead .sorting,\ntable.dataTable thead .sorting_asc,\ntable.dataTable thead .sorting_desc,\ntable.dataTable thead .sorting_asc_disabled,\ntable.dataTable thead .sorting_desc_disabled {\n  cursor: pointer;\n  position: relative;\n}\ntable.dataTable thead .sorting:before, table.dataTable thead .sorting:after,\ntable.dataTable thead .sorting_asc:before,\ntable.dataTable thead .sorting_asc:after,\ntable.dataTable thead .sorting_desc:before,\ntable.dataTable thead .sorting_desc:after,\ntable.dataTable thead .sorting_asc_disabled:before,\ntable.dataTable thead .sorting_asc_disabled:after,\ntable.dataTable thead .sorting_desc_disabled:before,\ntable.dataTable thead .sorting_desc_disabled:after {\n  position: absolute;\n  bottom: 0.9em;\n  display: block;\n  opacity: 0.3;\n}\ntable.dataTable thead .sorting:before,\ntable.dataTable thead .sorting_asc:before,\ntable.dataTable thead .sorting_desc:before,\ntable.dataTable thead .sorting_asc_disabled:before,\ntable.dataTable thead .sorting_desc_disabled:before {\n  right: 1em;\n  content: \"\\2191\";\n}\ntable.dataTable thead .sorting:after,\ntable.dataTable thead .sorting_asc:after,\ntable.dataTable thead .sorting_desc:after,\ntable.dataTable thead .sorting_asc_disabled:after,\ntable.dataTable thead .sorting_desc_disabled:after {\n  right: 0.5em;\n  content: \"\\2193\";\n}\ntable.dataTable thead .sorting_asc:before,\ntable.dataTable thead .sorting_desc:after {\n  opacity: 1;\n}\ntable.dataTable thead .sorting_asc_disabled:before,\ntable.dataTable thead .sorting_desc_disabled:after {\n  opacity: 0;\n}\n\ndiv.dataTables_scrollHead table.dataTable {\n  margin-bottom: 0 !important;\n}\n\ndiv.dataTables_scrollBody table {\n  border-top: none;\n  margin-top: 0 !important;\n  margin-bottom: 0 !important;\n}\ndiv.dataTables_scrollBody table thead .sorting:after,\ndiv.dataTables_scrollBody table thead .sorting_asc:after,\ndiv.dataTables_scrollBody table thead .sorting_desc:after {\n  display: none;\n}\ndiv.dataTables_scrollBody table tbody tr:first-child th,\ndiv.dataTables_scrollBody table tbody tr:first-child td {\n  border-top: none;\n}\n\ndiv.dataTables_scrollFoot > .dataTables_scrollFootInner {\n  box-sizing: content-box;\n}\ndiv.dataTables_scrollFoot > .dataTables_scrollFootInner > table {\n  margin-top: 0 !important;\n  border-top: none;\n}\n\n@media screen and (max-width: 767px) {\n  div.dataTables_wrapper div.dataTables_length,\n  div.dataTables_wrapper div.dataTables_filter,\n  div.dataTables_wrapper div.dataTables_info,\n  div.dataTables_wrapper div.dataTables_paginate {\n    text-align: center;\n  }\n}\ntable.dataTable.table-sm > thead > tr > th {\n  padding-right: 20px;\n}\ntable.dataTable.table-sm .sorting:before,\ntable.dataTable.table-sm .sorting_asc:before,\ntable.dataTable.table-sm .sorting_desc:before {\n  top: 5px;\n  right: 0.85em;\n}\ntable.dataTable.table-sm .sorting:after,\ntable.dataTable.table-sm .sorting_asc:after,\ntable.dataTable.table-sm .sorting_desc:after {\n  top: 5px;\n}\n\ntable.table-bordered.dataTable th,\ntable.table-bordered.dataTable td {\n  border-left-width: 0;\n}\ntable.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,\ntable.table-bordered.dataTable td:last-child,\ntable.table-bordered.dataTable td:last-child {\n  border-right-width: 0;\n}\ntable.table-bordered.dataTable tbody th,\ntable.table-bordered.dataTable tbody td {\n  border-bottom-width: 0;\n}\n\ndiv.dataTables_scrollHead table.table-bordered {\n  border-bottom-width: 0;\n}\n\ndiv.table-responsive > div.dataTables_wrapper > div.row {\n  margin: 0;\n}\ndiv.table-responsive > div.dataTables_wrapper > div.row > div[class^=\"col-\"]:first-child {\n  padding-left: 0;\n}\ndiv.table-responsive > div.dataTables_wrapper > div.row > div[class^=\"col-\"]:last-child {\n  padding-right: 0;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
 /***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../sass-loader/lib/loader.js?{\"sourceMap\":false,\"precision\":8,\"includePaths\":[]}!../../../../../src/scss/sb-admin.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -236,33 +221,6 @@ function toComment(sourceMap) {
 	return '/*# ' + data + ' */';
 }
 
-
-/***/ }),
-
-/***/ "../../../../datatables.net-bs4/css/datatables.bootstrap4.css":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!../../../../postcss-loader/index.js?{\"ident\":\"postcss\"}!../../../../datatables.net-bs4/css/datatables.bootstrap4.css");
-if(typeof content === 'string') content = [[module.i, content, '']];
-// add the styles to the DOM
-var update = __webpack_require__("../../../../style-loader/addStyles.js")(content, {});
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../css-loader/index.js??ref--8-1!../../postcss-loader/index.js??postcss!./datatables.bootstrap4.css", function() {
-			var newContent = require("!!../../css-loader/index.js??ref--8-1!../../postcss-loader/index.js??postcss!./datatables.bootstrap4.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
-}
 
 /***/ }),
 
@@ -593,7 +551,6 @@ function updateLink(linkElement, obj) {
 
 __webpack_require__("../../../../../src/styles.scss");
 __webpack_require__("../../../../bootstrap/dist/css/bootstrap.css");
-__webpack_require__("../../../../datatables.net-bs4/css/datatables.bootstrap4.css");
 __webpack_require__("../../../../font-awesome/scss/font-awesome.scss");
 module.exports = __webpack_require__("../../../../../src/scss/sb-admin.scss");
 

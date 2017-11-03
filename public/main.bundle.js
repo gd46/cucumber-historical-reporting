@@ -213,7 +213,7 @@ BreadcrumbsComponent = __decorate([
 /***/ "../../../../../src/app/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  dashboard works!\n</p>\n<div class=\"container-fluid\">\n\t<div class=\"row\" *ngIf=\"jobsTableInfo\">\n\t\t<app-datatable class=\"container-fluid\" [tableData]=\"jobsTableInfo\"></app-datatable>\n\t</div>\n</div>\n"
+module.exports = "<div class=\"container-fluid\">\n\t<div class=\"row\" *ngIf=\"jobsTableInfo\">\n\t\t<app-datatable class=\"container-fluid\" [tableData]=\"jobsTableInfo\"></app-datatable>\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -241,9 +241,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__jobs_service__ = __webpack_require__("../../../../../src/app/jobs.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -255,21 +253,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var DashboardComponent = (function () {
-    function DashboardComponent(http) {
-        this.http = http;
+    function DashboardComponent(jobsService) {
+        this.jobsService = jobsService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getJobs()
-            .then(function (data) { return _this.setJobsTableData(data); });
-    };
-    DashboardComponent.prototype.getJobs = function () {
-        return this.http.get('/api/jobs')
-            .toPromise()
-            .then(function (response) {
-            return response.json().data;
+        this.jobsService.getJobs()
+            .then(function (data) { return _this.setJobsTableData(data); })
+            .catch(function (err) {
+            //TODO add logger
+            console.log('error getting jobs info', err);
         });
     };
     DashboardComponent.prototype.setJobsTableData = function (data) {
@@ -288,9 +282,10 @@ DashboardComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-dashboard',
         template: __webpack_require__("../../../../../src/app/dashboard/dashboard.component.html"),
-        styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.scss")]
+        styles: [__webpack_require__("../../../../../src/app/dashboard/dashboard.component.scss")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__jobs_service__["a" /* JobsService */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__jobs_service__["a" /* JobsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__jobs_service__["a" /* JobsService */]) === "function" && _a || Object])
 ], DashboardComponent);
 
 var _a;
@@ -301,7 +296,7 @@ var _a;
 /***/ "../../../../../src/app/datatable/datatable.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table table-striped table-hover table-dark\">\n  <thead>\n    <tr>\n      <th *ngFor=\"let header of tableData.headers\">\n        {{header}}\n      </th>      \n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let job of tableData.data\">\n      <td>{{job.buildName}}</td>\n      <td>{{job.creationDate}}</td>\n    </tr>\n  </tbody>\n</table>"
+module.exports = "<table class=\"table table-sm table-striped table-hover table-dark\">\n  <thead>\n    <tr>\n      <th *ngFor=\"let header of tableData.headers\">\n        {{header}}\n      </th>      \n    </tr>\n  </thead>\n  <tbody>\n    <tr *ngFor=\"let job of tableData.data\">\n      <td>{{job.buildName}}</td>\n      <td>{{job.creationDate}}</td>\n    </tr>\n  </tbody>\n</table>"
 
 /***/ }),
 
@@ -343,7 +338,6 @@ var DatatableComponent = (function () {
     function DatatableComponent() {
     }
     DatatableComponent.prototype.ngOnInit = function () {
-        console.log('tableData', this.tableData);
     };
     return DatatableComponent;
 }());
@@ -422,6 +416,50 @@ FooterComponent = __decorate([
 ], FooterComponent);
 
 //# sourceMappingURL=footer.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/jobs.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JobsService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__ = __webpack_require__("../../../../rxjs/add/operator/toPromise.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_toPromise__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var JobsService = (function () {
+    function JobsService(http) {
+        this.http = http;
+    }
+    JobsService.prototype.getJobs = function () {
+        return this.http.get('/api/jobs')
+            .toPromise()
+            .then(function (response) {
+            return response.json().data;
+        });
+    };
+    return JobsService;
+}());
+JobsService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+], JobsService);
+
+var _a;
+//# sourceMappingURL=jobs.service.js.map
 
 /***/ }),
 
