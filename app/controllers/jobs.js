@@ -1,12 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const moment = require('moment');
-
 const reports = require('../models/reports');
 const jobs = require('../models/jobs');
+const moment = require('moment');
 
-router.get('/',(req,res) => {
-   jobs.getAllJobs((err, jobs)=> {
+function getAllJobs (req, res) {
+	jobs.getAllJobs((err, jobs)=> {
     if(err) {
       return res.json({
       	message: `Failed to load all jobs. Error: ${err}`
@@ -18,10 +15,10 @@ router.get('/',(req,res) => {
       });
 		}   
   });
-});
+}
 
-router.post('/', (req,res,next) => {
-  let newReports = new reports({
+function postJobAndReportInfo (req, res) {
+	 let newReports = new reports({
     reports: req.body.reports
   });
   let newJob = new jobs({
@@ -55,6 +52,9 @@ router.post('/', (req,res,next) => {
       });
     }
   });
-});
+}
 
-module.exports = router;
+module.exports = {
+	getAllJobs: getAllJobs,
+	postJobAndReportInfo: postJobAndReportInfo
+};

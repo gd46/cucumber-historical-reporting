@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./config/database');
-const reports = require('./app/controllers/reports');
-const jobs = require('./app/controllers/jobs');
+const reports = require('./app/routes/reports');
+const jobs = require('./app/routes/jobs');
 
 const app = express();
 const port = 3000;
